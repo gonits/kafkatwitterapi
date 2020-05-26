@@ -18,7 +18,7 @@ public class TwitterConsumerApi {
 		KafkaConsumer<String, String> consumer = ElasticSearchConsumer.createKafkaConsumer();
 		ElasticSearchConsumer.sendRecordsToElasticSearch(consumer, elasticSearchClient);
 		Runtime.getRuntime().addShutdownHook(new Thread(() -> {
-			logger.info("Received shutdown signal"); // need to check why this is not working
+			logger.info("Received shutdown signal"); // need to check
 			consumer.close();
 			try {
 				elasticSearchClient.close();
